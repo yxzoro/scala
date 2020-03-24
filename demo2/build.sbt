@@ -13,7 +13,8 @@ ThisBuild / scalaVersion := "2.12.11"
 
 
 val myDependencies = Seq(
-    "org.influxdb" % "influxdb-java" % "2.15"
+    "org.influxdb" % "influxdb-java" % "2.15" % "compile",
+    "org.scala-lang" % "scala-library" % "2.12.11" % "compile",
 )
 
 lazy val root = (project in file(".")).
@@ -34,4 +35,4 @@ Compile / run / fork := true
 Global / cancelable := true
 
 // exclude Scala library from assembly
-assembly / assemblyOption  := (assembly / assemblyOption).value.copy(includeScala = false)
+assembly / assemblyOption  := (assembly / assemblyOption).value.copy(includeScala = true)
